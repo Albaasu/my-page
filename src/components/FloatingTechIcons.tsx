@@ -228,40 +228,28 @@ interface Cfg {
   anim: string;
   delay: string;
   hideOnMobile?: boolean;
+  mobileOnly?: boolean;
 }
 
 const ICONS: Cfg[] = [
   /* ── Hero エリア (0–12%) ──────────── */
   { id: "react",   Icon: ReactIcon,      color: "cyan",   sz: "L", side: "L", topPct:  4, edgePct: 2.0, anim: "animate-float-y",    delay: "0s"   },
-  { id: "ts",      Icon: TypeScriptIcon, color: "cyan",   sz: "M", side: "R", topPct:  3, edgePct: 7.5, anim: "animate-float-x",    delay: "0.6s" },
-  { id: "go",      Icon: GoIcon,         color: "cyan",   sz: "L", side: "L", topPct:  9, edgePct: 8.5, anim: "animate-float-diag", delay: "1.0s" },
+  { id: "ts",      Icon: TypeScriptIcon, color: "cyan",   sz: "M", side: "R", topPct:  3, edgePct: 7.5, anim: "animate-float-x",    delay: "0.6s", hideOnMobile: true },
+  { id: "go",      Icon: GoIcon,         color: "cyan",   sz: "L", side: "L", topPct:  9, edgePct: 8.5, anim: "animate-float-diag", delay: "1.0s", hideOnMobile: true },
   { id: "github",  Icon: GitHubIcon,     color: "pink",   sz: "M", side: "R", topPct:  8, edgePct: 2.0, anim: "animate-float-y",    delay: "0.3s" },
-  { id: "next0",   Icon: NextIcon,       color: "white",  sz: "S", side: "R", topPct:  6, edgePct: 10.0,anim: "animate-float-diag", delay: "2.1s" },
+  { id: "next0",   Icon: NextIcon,       color: "white",  sz: "S", side: "R", topPct:  6, edgePct: 10.0,anim: "animate-float-diag", delay: "2.1s", hideOnMobile: true },
+  /* モバイル専用: Hero 上部右側の空白を埋める */
+  { id: "ts-m",    Icon: TypeScriptIcon, color: "cyan",   sz: "S", side: "R", topPct:  3, edgePct: 5.0, anim: "animate-float-x",    delay: "1.0s", mobileOnly: true },
+  { id: "next-m",  Icon: NextIcon,       color: "white",  sz: "S", side: "R", topPct:  5, edgePct: 3.0, anim: "animate-float-y",    delay: "1.5s", mobileOnly: true },
 
-  /* ── About エリア (12–30%) ─────────── */
-  { id: "hono",    Icon: HonoIcon,       color: "yellow", sz: "M", side: "R", topPct: 13, edgePct: 9.5, anim: "animate-float-y",    delay: "1.4s" },
-  { id: "bun",     Icon: BunIcon,        color: "yellow", sz: "M", side: "L", topPct: 17, edgePct: 4.5, anim: "animate-float-diag", delay: "0.7s" },
-  { id: "vue1",    Icon: VueIcon,        color: "green",  sz: "M", side: "R", topPct: 21, edgePct: 4.0, anim: "animate-float-y",    delay: "1.2s" },
-  { id: "supabase",Icon: SupabaseIcon,   color: "green",  sz: "S", side: "L", topPct: 24, edgePct: 9.0, anim: "animate-float-x",    delay: "0.5s", hideOnMobile: true },
-  { id: "docker",  Icon: DockerIcon,     color: "cyan",   sz: "L", side: "R", topPct: 22, edgePct: 1.0, anim: "animate-float-y",    delay: "1.1s", hideOnMobile: true },
-  { id: "drizzle", Icon: DrizzleIcon,    color: "green",  sz: "S", side: "L", topPct: 29, edgePct: 6.0, anim: "animate-float-diag", delay: "2.0s", hideOnMobile: true },
+  /* ── LatestPosts(Blog)エリア (12–20%) はアイコンなし ─ */
 
-  /* ── Skills エリア (30–52%) ─────────── */
-  { id: "node",    Icon: NodeIcon,       color: "green",  sz: "M", side: "R", topPct: 32, edgePct: 8.0, anim: "animate-float-x",    delay: "1.5s", hideOnMobile: true },
-  { id: "k8s",     Icon: KubernetesIcon, color: "cyan",   sz: "S", side: "L", topPct: 35, edgePct: 3.0, anim: "animate-float-y",    delay: "0.4s", hideOnMobile: true },
-  { id: "tailwind",Icon: TailwindIcon,   color: "cyan",   sz: "S", side: "R", topPct: 44, edgePct: 10.5,anim: "animate-float-diag", delay: "1.8s", hideOnMobile: true },
-  { id: "vite",    Icon: ViteIcon,       color: "pink",   sz: "S", side: "L", topPct: 47, edgePct: 7.0, anim: "animate-float-y",    delay: "0.9s", hideOnMobile: true },
-
-  /* ── Works エリア (58–80%) ─────────── */
-  { id: "aws",     Icon: AWSIcon,        color: "yellow", sz: "M", side: "R", topPct: 59, edgePct: 5.5, anim: "animate-float-y",    delay: "1.3s" },
-  { id: "next",    Icon: NextIcon,       color: "white",  sz: "M", side: "L", topPct: 62, edgePct: 2.5, anim: "animate-float-x",    delay: "0.2s" },
-  { id: "vue2",    Icon: VueIcon,        color: "green",  sz: "S", side: "R", topPct: 67, edgePct: 9.0, anim: "animate-float-diag", delay: "1.0s" },
-  { id: "firebase",Icon: FirebaseIcon,   color: "yellow", sz: "S", side: "L", topPct: 73, edgePct: 10.5,anim: "animate-float-diag", delay: "2.3s" },
-  { id: "prisma",  Icon: PrismaIcon,     color: "cyan",   sz: "S", side: "R", topPct: 76, edgePct: 3.5, anim: "animate-float-y",    delay: "1.6s" },
-
-  /* ── Contact エリア (80–92%) ─────────── */
-  { id: "ts2",     Icon: TypeScriptIcon, color: "cyan",   sz: "S", side: "R", topPct: 83, edgePct: 7.5, anim: "animate-float-x",    delay: "0.8s" },
-  { id: "react2",  Icon: ReactIcon,      color: "cyan",   sz: "S", side: "L", topPct: 87, edgePct: 4.5, anim: "animate-float-y",    delay: "1.9s" },
+  /* ── About エリア (20–34%) ─────────── */
+  { id: "hono",    Icon: HonoIcon,       color: "yellow", sz: "M", side: "L", topPct: 21, edgePct: 2.5, anim: "animate-float-y",    delay: "1.4s", hideOnMobile: true },
+  { id: "vue1",    Icon: VueIcon,        color: "green",  sz: "M", side: "R", topPct: 24, edgePct: 5.0, anim: "animate-float-y",    delay: "1.2s", hideOnMobile: true },
+  { id: "supabase",Icon: SupabaseIcon,   color: "green",  sz: "S", side: "L", topPct: 25, edgePct: 9.0, anim: "animate-float-x",    delay: "0.5s", hideOnMobile: true },
+  { id: "bun",     Icon: BunIcon,        color: "yellow", sz: "M", side: "L", topPct: 28, edgePct: 4.0, anim: "animate-float-diag", delay: "0.7s", hideOnMobile: true },
+  { id: "docker",  Icon: DockerIcon,     color: "cyan",   sz: "L", side: "R", topPct: 30, edgePct: 1.5, anim: "animate-float-y",    delay: "1.1s", hideOnMobile: true },
 ];
 
 /* サイズ */
@@ -294,10 +282,10 @@ export default function FloatingTechIcons() {
       className="absolute inset-0 pointer-events-none select-none overflow-hidden"
       style={{ zIndex: 25 }}
     >
-      {ICONS.map(({ id, Icon, color, sz, side, topPct, edgePct, anim, delay, hideOnMobile }) => (
+      {ICONS.map(({ id, Icon, color, sz, side, topPct, edgePct, anim, delay, hideOnMobile, mobileOnly }) => (
         <div
           key={id}
-          className={`absolute ${anim} animate-neon-pulse ${colorCls[color]} ${hideOnMobile ? "hidden md:block" : ""}`}
+          className={`absolute ${anim} animate-neon-pulse ${colorCls[color]} ${hideOnMobile ? "hidden md:block" : mobileOnly ? "md:hidden" : ""}`}
           style={{
             width:  szMap[sz],
             height: szMap[sz],

@@ -38,12 +38,12 @@ export default function Hero() {
 
       {/* 前面のネオン文字 */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-30">
-        <div className="hero-in absolute left-[22%] top-[30%] md:left-[15%] md:top-[20%] rotate-[-12deg]" style={{ animationDelay: "0.1s" }}>
+        <div className="hero-in absolute left-[3%] top-[5%] md:left-[15%] md:top-[20%] rotate-[-12deg]" style={{ animationDelay: "0.1s" }}>
           <span className="text-fluid-neon font-brush neon-cyan-solid leading-none">
             開
           </span>
         </div>
-        <div className="hero-in absolute right-[3%] bottom-[22%] md:right-[5%] md:bottom-[10%] rotate-[12deg]" style={{ animationDelay: "0.3s" }}>
+        <div className="hero-in absolute right-[3%] bottom-[5%] md:right-[5%] md:bottom-[10%] rotate-[12deg]" style={{ animationDelay: "0.3s" }}>
           <span className="text-fluid-neon font-brush neon-pink-solid leading-none">
             者
           </span>
@@ -53,7 +53,7 @@ export default function Hero() {
       {/* メインコンテンツ */}
       <div className="relative z-40 w-full max-w-7xl px-6 md:px-8 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 py-24 md:py-0">
         {/* 左側：垂直タイトル */}
-        <div className="hero-in flex items-center w-full md:w-auto" style={{ animationDelay: "0.2s" }}>
+        <div className="hero-in flex items-center justify-center md:justify-start w-full md:w-auto" style={{ animationDelay: "0.2s" }}>
           <div className="text-fluid-hero vertical-text font-brush text-white leading-none relative shrink-0">
             <span className="relative z-10">発</span>
             <span className="absolute -top-2 -left-2 text-cyan z-0 opacity-50 blur-md">

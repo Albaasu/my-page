@@ -28,9 +28,13 @@ export default function App() {
 
 function Portfolio() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isInHero, setIsInHero] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 100);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+      setIsInHero(window.scrollY < window.innerHeight * 0.8);
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -78,7 +82,7 @@ function Portfolio() {
       <div className="hidden md:block fixed top-0 left-10 w-px h-full bg-cyan/10 z-0" />
       <div className="hidden md:block fixed top-0 right-10 w-px h-full bg-pink/10 z-0" />
 
-      <Navbar isScrolled={isScrolled} />
+      <Navbar isScrolled={isScrolled} isInHero={isInHero} />
 
       <main className="relative z-10">
         {/* Hero: sticky で固定 → Blog が上にスライドしてくる演出 */}

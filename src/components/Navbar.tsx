@@ -4,6 +4,7 @@ import { PROFILE } from "@/constants";
 
 interface NavbarProps {
   isScrolled: boolean;
+  isInHero: boolean;
 }
 
 const navLinks = [
@@ -14,7 +15,7 @@ const navLinks = [
   { name: "Blog",    href: "/blog"    },
 ];
 
-export default function Navbar({ isScrolled }: NavbarProps) {
+export default function Navbar({ isScrolled, isInHero }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -47,6 +48,8 @@ export default function Navbar({ isScrolled }: NavbarProps) {
         isScrolled
           ? "bg-black text-white h-24 shadow-2xl"
           : "bg-transparent h-32"
+      } ${
+        isInHero ? "opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto" : ""
       }`}
     >
       <div className="flex items-center space-x-6">
