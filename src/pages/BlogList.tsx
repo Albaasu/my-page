@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Code2, ArrowRight, Tag } from "lucide-react";
+import { Code2, ArrowRight } from "lucide-react";
 import { getBlogList } from "@/lib/microcms";
 import type { BlogPost } from "@/types";
 import { PROFILE } from "@/constants";
