@@ -1,0 +1,6 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "bash /mnt/c/個人開発/home/kimura-portfolio/.claude/statusline-command.sh"
+  }
+}
