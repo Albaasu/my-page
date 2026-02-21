@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu as MenuIcon, X, Code2 } from "lucide-react";
 import { PROFILE } from "@/constants";
 
@@ -17,10 +18,11 @@ const navLinks = [
 
 export default function Navbar({ isScrolled }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isPortfolio = location.pathname === "/";
 
-  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (!href.startsWith("#")) return;
-    e.preventDefault();
+  const scrollTo = (href: string) => {
     if (href === "#top") {
       const startY = window.scrollY;
       const duration = 800;
@@ -35,7 +37,6 @@ export default function Navbar({ isScrolled }: NavbarProps) {
         if (progress < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
-      setIsOpen(false);
       return;
     }
     const el = document.querySelector(href);
@@ -56,7 +57,19 @@ export default function Navbar({ isScrolled }: NavbarProps) {
       };
       requestAnimationFrame(step);
     }
+  };
+
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
     setIsOpen(false);
+    if (isPortfolio) {
+      scrollTo(href);
+    } else {
+      // ブログページ等からはポートフォリオページへ遷移してからスクロール
+      const hash = href === "#top" ? "" : href;
+      navigate("/" + hash);
+    }
   };
 
   return (

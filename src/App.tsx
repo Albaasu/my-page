@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import {
   Navbar,
   Hero,
@@ -28,12 +28,27 @@ export default function App() {
 
 function Portfolio() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 100);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // ブログページ等から遷移してきたときにハッシュへスクロール
+  useEffect(() => {
+    const hash = location.hash;
+    if (!hash) return;
+    const timer = setTimeout(() => {
+      const el = document.querySelector(hash);
+      if (el) {
+        const targetY = el.getBoundingClientRect().top + window.scrollY - 96;
+        window.scrollTo({ top: targetY, behavior: "smooth" });
+      }
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [location.hash]);
 
   useEffect(() => {
     const targets = document.querySelectorAll<HTMLElement>(
