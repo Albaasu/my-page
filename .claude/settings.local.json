@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(curl:*)",
-      "WebFetch(domain:www.cho-kaguyahime.com)",
-      "Bash(pnpm run build:*)"
-    ]
-  }
-}
