@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { Code2, ArrowLeft, Calendar, RefreshCw } from "lucide-react";
-import { getBlogDetail } from "@/lib/microcms";
+import { Code2, ArrowLeft, ArrowRight, Calendar, RefreshCw } from "lucide-react";
+import { getBlogDetail, getBlogList } from "@/lib/microcms";
 import type { BlogPost } from "@/types";
 import { PROFILE } from "@/constants";
 
@@ -23,13 +23,18 @@ export default function BlogDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [post, setPost] = useState<BlogPost | null>(null);
+  const [prev, setPrev] = useState<BlogPost | null>(null);
+  const [next, setNext] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!id) return;
-    getBlogDetail(id).then((data) => {
+    Promise.all([getBlogDetail(id), getBlogList()]).then(([data, list]) => {
       if (!data) { navigate("/blog", { replace: true }); return; }
       setPost(data);
+      const idx = list.findIndex((p) => p.id === id);
+      setPrev(idx > 0 ? list[idx - 1] : null);
+      setNext(idx < list.length - 1 ? list[idx + 1] : null);
       setLoading(false);
     });
   }, [id, navigate]);
@@ -102,19 +107,44 @@ export default function BlogDetail() {
             />
 
             {/* 前後ナビ */}
-            <div className="mt-16 md:mt-24 pt-8 border-t-4 border-black flex justify-between items-center">
+            <div className="mt-16 md:mt-24 pt-8 border-t-4 border-black grid grid-cols-2 gap-4">
+              <div>
+                {prev && (
+                  <Link
+                    to={`/blog/${prev.id}`}
+                    className="group flex flex-col gap-1 hover:text-cyan transition-colors"
+                  >
+                    <span className="font-dot text-xs text-black/40 tracking-widest flex items-center gap-1 group-hover:text-cyan">
+                      <ArrowLeft size={12} className="group-hover:-translate-x-1 transition-transform" /> PREV
+                    </span>
+                    <span className="font-kaisei text-sm font-black leading-snug line-clamp-2">
+                      {prev.title}
+                    </span>
+                  </Link>
+                )}
+              </div>
+              <div className="text-right">
+                {next && (
+                  <Link
+                    to={`/blog/${next.id}`}
+                    className="group flex flex-col gap-1 items-end hover:text-cyan transition-colors"
+                  >
+                    <span className="font-dot text-xs text-black/40 tracking-widest flex items-center gap-1 group-hover:text-cyan">
+                      NEXT <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <span className="font-kaisei text-sm font-black leading-snug line-clamp-2">
+                      {next.title}
+                    </span>
+                  </Link>
+                )}
+              </div>
+            </div>
+            <div className="mt-8 flex justify-center">
               <Link
                 to="/blog"
-                className="flex items-center gap-3 font-dot text-sm tracking-widest text-black/60 hover:text-cyan transition-colors group"
+                className="font-dot text-xs text-black/30 hover:text-cyan transition-colors tracking-[0.5em] flex items-center gap-2"
               >
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                BACK_TO_LIST
-              </Link>
-              <Link
-                to="/"
-                className="font-dot text-sm tracking-widest text-black/40 hover:text-pink transition-colors"
-              >
-                PORTFOLIO →
+                <ArrowLeft size={12} /> BACK_TO_LIST
               </Link>
             </div>
           </main>
