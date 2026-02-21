@@ -82,33 +82,9 @@ const HonoIcon = () => (
   </svg>
 );
 
-const NodeIcon = () => (
-  <svg viewBox="0 0 100 114" fill="none" stroke="currentColor" aria-hidden>
-    <path d="M50 4 L96 29 L96 85 L50 110 L4 85 L4 29 Z" strokeWidth="3" />
-    <text x="50" y="70" textAnchor="middle" fontSize="22"
-      fontWeight="900" fontFamily="monospace" fill="currentColor" stroke="none">Node</text>
-  </svg>
-);
-
-const AWSIcon = () => (
-  <svg viewBox="0 0 110 76" fill="none" stroke="currentColor" aria-hidden>
-    <path d="M22 58 Q8 58 6 44 Q4 30 18 27 Q16 10 30 8 Q44 6 52 18 Q60 8 72 12 Q88 16 88 30 Q100 30 102 44 Q104 58 88 58 Z"
-      strokeWidth="2.6" strokeLinejoin="round" />
-    <text x="55" y="48" textAnchor="middle" fontSize="15"
-      fontWeight="900" fontFamily="monospace" fill="currentColor" stroke="none">AWS</text>
-  </svg>
-);
-
 const SupabaseIcon = () => (
   <svg viewBox="0 0 56 80" fill="none" stroke="currentColor" strokeWidth="2.6" aria-hidden>
     <path d="M42 4 L14 46 L30 46 L14 76 L48 34 L32 34 Z" strokeLinejoin="round" strokeLinecap="round" />
-  </svg>
-);
-
-const FirebaseIcon = () => (
-  <svg viewBox="0 0 62 82" fill="none" stroke="currentColor" aria-hidden>
-    <path d="M31 4 C15 20 6 36 6 52 C6 68 17 78 31 78 C45 78 56 68 56 52 C56 36 47 20 31 4Z" strokeWidth="2.6" />
-    <path d="M31 30 C24 40 23 50 27 58" strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
 
@@ -126,35 +102,6 @@ const GitHubIcon = () => (
   </svg>
 );
 
-const TailwindIcon = () => (
-  <svg viewBox="0 0 90 56" fill="none" stroke="currentColor" aria-hidden>
-    <path d="M5 27 Q14 7 23 27 Q32 47 41 27 Q50 7 59 27 Q68 47 77 27 Q86 7 95 27"
-      strokeWidth="3" strokeLinecap="round" />
-    <path d="M5 37 Q14 17 23 37 Q32 57 41 37 Q50 17 59 37 Q68 57 77 37 Q86 17 95 37"
-      strokeWidth="3" strokeLinecap="round" strokeOpacity="0.5" />
-  </svg>
-);
-
-const KubernetesIcon = () => (
-  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden>
-    <circle cx="50" cy="50" r="44" strokeWidth="2.8" />
-    <circle cx="50" cy="50" r="10" strokeWidth="2.4" />
-    <line x1="50" y1="40" x2="50" y2="7"  strokeWidth="2.4" />
-    <line x1="59" y1="45" x2="88" y2="29" strokeWidth="2.4" />
-    <line x1="59" y1="55" x2="88" y2="72" strokeWidth="2.4" />
-    <line x1="50" y1="60" x2="50" y2="93" strokeWidth="2.4" />
-    <line x1="41" y1="55" x2="12" y2="72" strokeWidth="2.4" />
-    <line x1="41" y1="45" x2="12" y2="29" strokeWidth="2.4" />
-  </svg>
-);
-
-const PrismaIcon = () => (
-  <svg viewBox="0 0 70 80" fill="none" stroke="currentColor" aria-hidden>
-    <path d="M35 4 L66 76 L4 76 Z" strokeWidth="2.8" strokeLinejoin="round" />
-    <line x1="35" y1="4" x2="35" y2="76" strokeWidth="2" strokeDasharray="5 4" strokeOpacity="0.6" />
-  </svg>
-);
-
 const BunIcon = () => (
   <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden>
     <circle cx="50" cy="52" r="42" strokeWidth="2.8" />
@@ -169,23 +116,6 @@ const BunIcon = () => (
     <path d="M80 28 Q86 14 72 20" strokeWidth="2.2" strokeLinecap="round" fill="none" />
     <text x="50" y="96" textAnchor="middle" fontSize="13" fontWeight="900"
       fontFamily="monospace" fill="currentColor" stroke="none">Bun</text>
-  </svg>
-);
-
-const DrizzleIcon = () => (
-  <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" aria-hidden>
-    <path d="M14 38 Q8 38 7 30 Q6 22 14 20 Q13 10 22 9 Q32 8 36 16 Q42 8 50 11 Q60 14 60 24 Q68 24 68 32 Q68 40 58 40 Z"
-      strokeWidth="2.4" strokeLinejoin="round" />
-    <path d="M24 50 Q24 62 20 66 Q16 70 20 74 Q24 78 28 74 Q32 70 28 66 Q24 62 28 50" strokeWidth="2.2" strokeLinecap="round" />
-    <path d="M40 46 Q40 58 36 62 Q32 66 36 70 Q40 74 44 70 Q48 66 44 62 Q40 58 44 46" strokeWidth="2.2" strokeLinecap="round" />
-    <path d="M56 50 Q56 62 52 66 Q48 70 52 74 Q56 78 60 74 Q64 70 60 66 Q56 62 60 50" strokeWidth="2.2" strokeLinecap="round" />
-  </svg>
-);
-
-const ViteIcon = () => (
-  <svg viewBox="0 0 70 80" fill="none" stroke="currentColor" aria-hidden>
-    <path d="M4 4 L35 76 L66 4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M18 4 L35 44 L52 4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
