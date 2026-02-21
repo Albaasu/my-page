@@ -233,7 +233,8 @@ interface Cfg {
 
 const ICONS: Cfg[] = [
   /* ── Hero エリア (0–12%) ──────────── */
-  { id: "react",   Icon: ReactIcon,      color: "cyan",   sz: "L", side: "L", topPct:  4, edgePct: 2.0, anim: "animate-float-y",    delay: "0s"   },
+  { id: "react",   Icon: ReactIcon,      color: "cyan",   sz: "L", side: "L", topPct:  4, edgePct: 2.0, anim: "animate-float-y",    delay: "0s",   hideOnMobile: true },
+  { id: "react-m", Icon: ReactIcon,      color: "cyan",   sz: "M", side: "L", topPct:  8, edgePct: 2.0, anim: "animate-float-y",    delay: "0s",   mobileOnly: true },
   { id: "ts",      Icon: TypeScriptIcon, color: "cyan",   sz: "M", side: "R", topPct:  3, edgePct: 7.5, anim: "animate-float-x",    delay: "0.6s", hideOnMobile: true },
   { id: "go",      Icon: GoIcon,         color: "cyan",   sz: "L", side: "L", topPct:  9, edgePct: 8.5, anim: "animate-float-diag", delay: "1.0s", hideOnMobile: true },
   { id: "github",  Icon: GitHubIcon,     color: "pink",   sz: "M", side: "R", topPct:  8, edgePct: 2.0, anim: "animate-float-y",    delay: "0.3s" },

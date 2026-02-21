@@ -38,7 +38,14 @@ export default function Hero() {
 
       {/* 前面のネオン文字 */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-30">
-        <div className="hero-in absolute left-[3%] top-[5%] md:left-[15%] md:top-[20%] rotate-[-12deg]" style={{ animationDelay: "0.1s" }}>
+        {/* 発: モバイル専用フローティング（発と開の高さを入れ替え） */}
+        <div className="hero-in md:hidden absolute left-[3%] top-[22%] rotate-[-5deg]" style={{ animationDelay: "0.2s" }}>
+          <div className="text-fluid-hero vertical-text font-brush text-white leading-none relative">
+            <span className="relative z-10">発</span>
+            <span className="absolute -top-2 -left-2 text-cyan z-0 opacity-50 blur-md">発</span>
+          </div>
+        </div>
+        <div className="hero-in absolute left-[3%] top-[30%] md:left-[15%] md:top-[20%] rotate-[-12deg]" style={{ animationDelay: "0.1s" }}>
           <span className="text-fluid-neon font-brush neon-cyan-solid leading-none">
             開
           </span>
@@ -52,8 +59,8 @@ export default function Hero() {
 
       {/* メインコンテンツ */}
       <div className="relative z-40 w-full max-w-7xl px-6 md:px-8 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 py-24 md:py-0">
-        {/* 左側：垂直タイトル */}
-        <div className="hero-in flex items-center justify-center md:justify-start w-full md:w-auto" style={{ animationDelay: "0.2s" }}>
+        {/* 左側：垂直タイトル（デスクトップのみ） */}
+        <div className="hero-in hidden md:flex items-center md:justify-start md:w-auto" style={{ animationDelay: "0.2s" }}>
           <div className="text-fluid-hero vertical-text font-brush text-white leading-none relative shrink-0">
             <span className="relative z-10">発</span>
             <span className="absolute -top-2 -left-2 text-cyan z-0 opacity-50 blur-md">
@@ -63,7 +70,7 @@ export default function Hero() {
         </div>
 
         {/* 右側：画像とコピー */}
-        <div className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-lg mx-auto md:mx-0">
+        <div className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-lg mx-auto md:mx-0 mt-20 md:mt-0">
           <div className="hero-in relative rotate-[-5deg] border-[6px] md:border-[12px] border-black bg-black p-2 shadow-2xl" style={{ animationDelay: "0.4s" }}>
             <img
               src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
@@ -75,7 +82,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-12 md:mt-24 space-y-5 md:space-y-8 text-right md:text-left">
+          <div className="mt-12 md:mt-24 space-y-5 md:space-y-8 text-center md:text-left">
             <p className="hero-in font-kaisei text-xl md:text-3xl lg:text-5xl font-black leading-tight text-white drop-shadow-lg" style={{ animationDelay: "0.6s" }}>
               アイデアを
               <br />

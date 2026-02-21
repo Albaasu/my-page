@@ -4,7 +4,6 @@ import { PROFILE } from "@/constants";
 
 interface NavbarProps {
   isScrolled: boolean;
-  isInHero: boolean;
 }
 
 const navLinks = [
@@ -15,7 +14,7 @@ const navLinks = [
   { name: "Blog",    href: "/blog"    },
 ];
 
-export default function Navbar({ isScrolled, isInHero }: NavbarProps) {
+export default function Navbar({ isScrolled }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -48,8 +47,6 @@ export default function Navbar({ isScrolled, isInHero }: NavbarProps) {
         isScrolled
           ? "bg-black text-white h-24 shadow-2xl"
           : "bg-transparent h-32"
-      } ${
-        isInHero ? "opacity-0 pointer-events-none lg:opacity-100 lg:pointer-events-auto" : ""
       }`}
     >
       <div className="flex items-center space-x-6">
@@ -59,7 +56,7 @@ export default function Navbar({ isScrolled, isInHero }: NavbarProps) {
         <div className="flex flex-col">
           <h1
             className={`font-brush text-4xl md:text-5xl tracking-tighter font-black leading-none ${
-              isScrolled ? "text-white" : "text-black"
+              isScrolled ? "text-white" : "text-white md:text-black"
             }`}
           >
             {PROFILE.name}
@@ -97,7 +94,7 @@ export default function Navbar({ isScrolled, isInHero }: NavbarProps) {
 
       {/* Mobile Toggle */}
       <button
-        className={`${isScrolled ? "text-white" : "text-black"} lg:hidden`}
+        className={`${isScrolled ? "text-white" : "text-white md:text-black"} lg:hidden`}
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <X size={48} /> : <MenuIcon size={48} />}
