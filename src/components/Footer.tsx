@@ -3,8 +3,8 @@ import { PROFILE } from "@/constants";
 
 export default function Footer() {
   const links = [
-    { Icon: Github, href: `https://github.com/${PROFILE.github}` },
-    { Icon: Twitter, href: `https://twitter.com/${PROFILE.twitter}` },
+    { id: "github",  Icon: Github,   href: PROFILE.github },
+    { id: "twitter", Icon: Twitter,  href: PROFILE.twitter },
   ];
 
   return (
@@ -27,9 +27,9 @@ export default function Footer() {
         </div>
 
         <div className="flex space-x-12">
-          {links.map(({ Icon, href }, idx) => (
+          {links.map(({ id, Icon, href }) => (
             <a
-              key={idx}
+              key={id}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
