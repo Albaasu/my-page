@@ -6,14 +6,14 @@ export default function Skills() {
   const database = SKILLS.filter((s) => s.category === "database");
 
   return (
-    <section id="skills" className="py-12 md:py-20 bg-white relative overflow-hidden">
+    <section id="skills" className="pt-12 pb-6 md:pt-20 md:pb-10 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-cyan/10 -skew-x-12 translate-x-1/4 -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* ── セクションヘッダー ── */}
         <div className="flex flex-col items-center mb-10 md:mb-16 space-y-6">
-          <h3 className="reveal font-dot text-pink font-bold tracking-[1em] uppercase text-sm">
+          <h3 className="reveal font-dot text-pink font-bold tracking-[0.5em] uppercase text-xs">
             Tech Stack
           </h3>
           <h2 className="reveal-clip text-fluid-section font-brush tracking-tighter text-black leading-none text-center">
