@@ -99,13 +99,12 @@ export const PROJECTS: ProjectImage[] = [
   },
 ];
 
-// Profile settings - 編集はここだけでOK
 export const PROFILE = {
   name: "木村",
   nameRomaji: "KIMURA",
   bio: "気合とパッションで生きてます",
   title: "ENGINEER",
-  github: "YOUR_GITHUB",
-  twitter: "YOUR_TWITTER",
+  github: "https://github.com/Albaasu",
+  twitter: "https://x.com/Cheke_",
   email: "your@email.com",
 } as const;

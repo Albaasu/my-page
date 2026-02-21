@@ -24,7 +24,7 @@ export default function Contact() {
 
           <div className="grid gap-8 md:gap-12">
             <a
-              href={`https://github.com/${PROFILE.github}`}
+              href={PROFILE.github}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-start space-x-8 group"
@@ -37,7 +37,7 @@ export default function Contact() {
                   GITHUB
                 </p>
                 <p className="text-black/60 text-lg font-kaisei font-bold leading-relaxed">
-                  github.com/{PROFILE.github}
+                  github.com/Albaasu
                   <br />
                   ソースコード・プロジェクト公開中
                 </p>
@@ -45,7 +45,7 @@ export default function Contact() {
             </a>
 
             <a
-              href={`https://twitter.com/${PROFILE.twitter}`}
+              href={PROFILE.twitter}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-start space-x-8 group"
@@ -58,7 +58,7 @@ export default function Contact() {
                   X / TWITTER
                 </p>
                 <p className="text-black/60 text-lg font-kaisei font-bold leading-relaxed">
-                  @{PROFILE.twitter}
+                  @Cheke_
                   <br />
                   技術情報・日常をツイート
                 </p>
@@ -80,7 +80,7 @@ export default function Contact() {
             {/* ブログアイコン */}
             <div className="relative z-10 flex flex-col items-center gap-6 text-center px-8">
               <span className="font-dot text-cyan text-xs tracking-[0.5em] opacity-70">
-                COMING_SOON
+                NOW_OPEN
               </span>
 
               <h3 className="font-brush text-white text-5xl md:text-7xl leading-none"
@@ -89,7 +89,7 @@ export default function Contact() {
               </h3>
 
               <p className="font-dot text-cyan/60 text-xs md:text-sm tracking-[0.3em] leading-loose">
-                microCMS で構築予定
+                microCMS で構築
                 <br />
                 技術記事・開発ログを発信
               </p>
@@ -98,7 +98,7 @@ export default function Contact() {
                 href="/blog"
                 className="mt-2 px-6 py-3 border-2 border-cyan/40 font-dot text-cyan/50 text-xs tracking-[0.4em] hover:border-cyan hover:text-cyan transition-colors"
               >
-                PREVIEW →
+                READ →
               </a>
             </div>
 
