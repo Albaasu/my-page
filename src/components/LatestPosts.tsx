@@ -12,8 +12,13 @@ function formatDate(iso: string) {
   return { year: y, md: `${m}.${day}` };
 }
 
-const TAG_COLORS = ["bg-cyan text-black", "bg-pink text-white", "bg-yellow text-black", "bg-green text-black"];
-function tagColor(i: number) { return TAG_COLORS[i % TAG_COLORS.length]; }
+const CATEGORY_COLORS: Record<string, string> = {
+  frontend: "bg-cyan text-black",
+  backend:  "bg-pink text-white",
+  infra:    "bg-yellow text-black",
+  tips:     "bg-green text-black",
+};
+function categoryColor(id: string) { return CATEGORY_COLORS[id] ?? "bg-white/20 text-white"; }
 
 export default function LatestPosts() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -116,13 +121,11 @@ export default function LatestPosts() {
 
                     {/* タイトル */}
                     <div className="flex-1 min-w-0">
-                      {post.tags && post.tags.length > 0 && (
+                      {post.category && (
                         <div className="flex flex-wrap gap-1 mb-2">
-                          {post.tags.slice(0, 1).map((tag, ti) => (
-                            <span key={tag.id} className={`font-dot text-[10px] px-2 py-0.5 ${tagColor(ti)}`}>
-                              {tag.name}
-                            </span>
-                          ))}
+                          <span className={`font-dot text-[10px] px-2 py-0.5 ${categoryColor(post.category.id)}`}>
+                            {post.category.name}
+                          </span>
                         </div>
                       )}
                       <h3 className="font-kaisei text-white text-base md:text-lg font-black leading-snug group-hover:text-cyan transition-colors line-clamp-2">

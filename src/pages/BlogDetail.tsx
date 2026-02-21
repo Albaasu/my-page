@@ -11,8 +11,13 @@ function formatDate(iso: string) {
   });
 }
 
-const TAG_COLORS = ["bg-cyan text-black", "bg-pink text-white", "bg-yellow text-black", "bg-green text-black"];
-function tagColor(i: number) { return TAG_COLORS[i % TAG_COLORS.length]; }
+const CATEGORY_COLORS: Record<string, string> = {
+  frontend: "bg-cyan text-black",
+  backend:  "bg-pink text-white",
+  infra:    "bg-yellow text-black",
+  tips:     "bg-green text-black",
+};
+function categoryColor(id: string) { return CATEGORY_COLORS[id] ?? "bg-white/20 text-white"; }
 
 export default function BlogDetail() {
   const { id } = useParams<{ id: string }>();
@@ -59,14 +64,12 @@ export default function BlogDetail() {
               style={{ backgroundImage: "repeating-linear-gradient(0deg, #00f2ff 0px, #00f2ff 1px, transparent 1px, transparent 28px)" }} />
 
             <div className="max-w-4xl mx-auto relative z-10">
-              {/* タグ */}
-              {post.tags && post.tags.length > 0 && (
+              {/* カテゴリ */}
+              {post.category && (
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {post.tags.map((tag, i) => (
-                    <span key={tag.id} className={`font-dot text-xs px-3 py-1 ${tagColor(i)}`}>
-                      {tag.name}
-                    </span>
-                  ))}
+                  <span className={`font-dot text-xs px-3 py-1 ${categoryColor(post.category.id)}`}>
+                    {post.category.name}
+                  </span>
                 </div>
               )}
 

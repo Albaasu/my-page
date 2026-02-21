@@ -11,8 +11,13 @@ function formatDate(iso: string) {
   });
 }
 
-const TAG_COLORS = ["bg-cyan text-black", "bg-pink text-white", "bg-yellow text-black", "bg-green text-black"];
-function tagColor(i: number) { return TAG_COLORS[i % TAG_COLORS.length]; }
+const CATEGORY_COLORS: Record<string, string> = {
+  frontend: "bg-cyan text-black",
+  backend:  "bg-pink text-white",
+  infra:    "bg-yellow text-black",
+  tips:     "bg-green text-black",
+};
+function categoryColor(id: string) { return CATEGORY_COLORS[id] ?? "bg-black/10 text-black"; }
 
 export default function BlogList() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -106,14 +111,12 @@ export default function BlogList() {
 
                 {/* テキスト */}
                 <div className="p-5 md:p-6 flex flex-col flex-1">
-                  {/* タグ */}
-                  {post.tags && post.tags.length > 0 && (
+                  {/* カテゴリ */}
+                  {post.category && (
                     <div className="flex flex-wrap gap-1.5 mb-3">
-                      {post.tags.map((tag, ti) => (
-                        <span key={tag.id} className={`font-dot text-[10px] px-2 py-0.5 ${tagColor(ti)}`}>
-                          {tag.name}
-                        </span>
-                      ))}
+                      <span className={`font-dot text-[10px] px-2 py-0.5 ${categoryColor(post.category.id)}`}>
+                        {post.category.name}
+                      </span>
                     </div>
                   )}
 
@@ -121,9 +124,7 @@ export default function BlogList() {
                     {post.title}
                   </h2>
 
-                  <p className="text-sm text-black/50 leading-relaxed mb-4 flex-1 line-clamp-3">
-                    {post.excerpt}
-                  </p>
+
 
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-black/10">
                     <span className="font-dot text-xs text-black/30 tracking-widest">

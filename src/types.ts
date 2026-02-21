@@ -15,18 +15,12 @@ export interface ProjectImage {
 }
 
 /* ── microCMS Blog ── */
-export interface BlogTag {
-  id: string;
-  name: string;
-}
-
 export interface BlogPost {
   id: string;
   title: string;
   content: string;       // HTML (microCMS リッチエディタ)
-  excerpt?: string;
   publishedAt: string;
   updatedAt: string;
-  tags?: BlogTag[];
+  category?: { id: string; name: string };
   eyecatch?: { url: string; width: number; height: number };
 }
