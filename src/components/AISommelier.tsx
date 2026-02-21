@@ -18,8 +18,7 @@ export default function AISommelier() {
       const filtered = all.filter(
         (p) =>
           p.title.toLowerCase().includes(q) ||
-          p.excerpt?.toLowerCase().includes(q) ||
-          p.tags?.some((t) => t.name.toLowerCase().includes(q))
+          p.category?.name.toLowerCase().includes(q)
       );
       setResults(filtered);
     } finally {
@@ -99,13 +98,11 @@ export default function AISommelier() {
                           className="group flex items-center gap-4 px-6 py-5 hover:bg-cyan/10 transition-colors"
                         >
                           <div className="flex-1 min-w-0 text-left">
-                            {post.tags && post.tags.length > 0 && (
+                            {post.category && (
                               <div className="flex flex-wrap gap-1 mb-1">
-                                {post.tags.slice(0, 2).map((tag) => (
-                                  <span key={tag.id} className="font-dot text-[10px] px-2 py-0.5 bg-cyan text-black">
-                                    {tag.name}
-                                  </span>
-                                ))}
+                                <span className="font-dot text-[10px] px-2 py-0.5 bg-cyan text-black">
+                                  {post.category.name}
+                                </span>
                               </div>
                             )}
                             <h4 className="font-kaisei font-black text-base md:text-lg leading-snug group-hover:text-pink transition-colors line-clamp-2">
