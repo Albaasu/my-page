@@ -13,6 +13,7 @@ import {
   LatestPosts,
 } from "@/components";
 import FloatingTechIcons from "@/components/FloatingTechIcons";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import BlogList from "@/pages/BlogList";
 import BlogDetail from "@/pages/BlogDetail";
 
@@ -129,6 +130,7 @@ function Portfolio() {
       </main>
 
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }

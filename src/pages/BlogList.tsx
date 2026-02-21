@@ -5,6 +5,7 @@ import { getBlogList } from "@/lib/microcms";
 import type { BlogPost } from "@/types";
 import { PROFILE } from "@/constants";
 import Navbar from "@/components/Navbar";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("ja-JP", {
@@ -139,6 +140,7 @@ export default function BlogList() {
           © {new Date().getFullYear()} {PROFILE.name} — Powered by microCMS
         </p>
       </footer>
+      <ScrollToTopButton />
     </div>
   );
 }
