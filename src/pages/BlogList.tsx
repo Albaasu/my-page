@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Code2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getBlogList } from "@/lib/microcms";
 import type { BlogPost } from "@/types";
 import { PROFILE } from "@/constants";
+import Navbar from "@/components/Navbar";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("ja-JP", {
@@ -22,30 +23,21 @@ function categoryColor(id: string) { return CATEGORY_COLORS[id] ?? "bg-black/10 
 export default function BlogList() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     getBlogList().then((data) => { setPosts(data); setLoading(false); });
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 100);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white selection:bg-pink selection:text-white">
-
-      {/* ── Navbar ── */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black py-5 px-6 md:px-12 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-4">
-          <div className="w-10 h-10 bg-cyan border-2 border-black flex items-center justify-center rotate-[-10deg]">
-            <Code2 size={20} className="text-black" />
-          </div>
-          <span className="font-brush text-white text-2xl md:text-3xl tracking-tighter font-black">
-            {PROFILE.name}
-          </span>
-        </Link>
-        <div className="flex items-center gap-6">
-          <Link to="/" className="font-dot text-white/60 text-sm tracking-widest hover:text-cyan transition-colors">
-            ← PORTFOLIO
-          </Link>
-        </div>
-      </nav>
+      <Navbar isScrolled={isScrolled} />
 
       {/* ── ヘッダー ── */}
       <header className="bg-black pt-32 pb-16 md:pb-24 px-6 relative overflow-hidden">
