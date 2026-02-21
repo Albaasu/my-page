@@ -7,6 +7,7 @@ interface NavbarProps {
 }
 
 const navLinks = [
+  { name: "Home",    href: "#top"     },
   { name: "About",   href: "#about"   },
   { name: "Skills",  href: "#skills"  },
   { name: "Works",   href: "#works"   },
@@ -20,6 +21,23 @@ export default function Navbar({ isScrolled }: NavbarProps) {
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (!href.startsWith("#")) return;
     e.preventDefault();
+    if (href === "#top") {
+      const startY = window.scrollY;
+      const duration = 800;
+      let startTime: number | null = null;
+      const step = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const eased = progress < 0.5
+          ? 2 * progress * progress
+          : -1 + (4 - 2 * progress) * progress;
+        window.scrollTo(0, startY * (1 - eased));
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+      setIsOpen(false);
+      return;
+    }
     const el = document.querySelector(href);
     if (el) {
       const targetY = el.getBoundingClientRect().top + window.scrollY - 96;
