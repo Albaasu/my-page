@@ -2,7 +2,10 @@ import { PROJECTS, PROFILE } from "@/constants";
 
 export default function Works() {
   return (
-    <section id="works" className="py-14 md:py-24 lg:py-32 px-6 bg-white relative overflow-hidden">
+    <section
+      id="works"
+      className="py-14 md:py-24 lg:py-32 px-6 bg-white relative overflow-hidden"
+    >
       {/* 巨大な背景文字 */}
       <div className="absolute top-0 right-10 vertical-text font-brush text-[20rem] text-black/5 pointer-events-none select-none">
         作品作品作品作品作品作品
@@ -10,27 +13,32 @@ export default function Works() {
 
       <div className="max-w-[90vw] mx-auto relative z-10">
         {/* ヘッダー */}
-        <div className="flex flex-col md:flex-row items-start justify-between mb-10 md:mb-16 gap-8 md:gap-12">
-          <div className="relative">
-            <div className="reveal bg-black text-white px-6 py-2 font-dot text-lg font-black tracking-widest mb-8 md:mb-12 transform skew-x-[-15deg] inline-block">
+        <div className="flex flex-col md:flex-row md:items-end mb-10 md:mb-16">
+          <div className="relative shrink-0">
+            <div className="bg-black text-white px-6 py-2 font-dot text-lg font-black tracking-widest mb-6 transform skew-x-[-15deg] inline-block">
               PORTFOLIO
             </div>
-            <h2 className="reveal-clip text-fluid-works font-brush tracking-tighter text-black leading-none relative">
+            <h2
+              className="font-brush tracking-tighter text-black leading-none relative"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 6rem)" }}
+            >
               WORKS
-              <span className="absolute -bottom-4 left-0 w-full h-4 bg-pink rotate-[-2deg]" />
+              <span className="absolute -bottom-3 left-0 w-1/2 h-3 bg-pink rotate-[-2deg]" />
             </h2>
           </div>
 
-          <div className="max-w-md space-y-6 md:space-y-8 mt-4 md:mt-8">
-            <p className="text-black font-kaisei text-2xl md:text-4xl font-black leading-tight tracking-tighter">
-              これまでの
-              <br />
-              <span className="bg-black text-white px-4 italic">
-                プロジェクト
-              </span>
-              <br />
-              を紹介。
-            </p>
+          <div className="flex-1 flex justify-center items-end pb-4 mt-12 md:mt-0">
+            <div className="md:rotate-[-6deg] md:origin-bottom-left">
+              <p className="text-black font-kaisei text-4xl md:text-5xl font-black leading-tight tracking-tighter">
+                これまでの
+                <br />
+                <span className="bg-black text-white px-4 italic">
+                  プロジェクト
+                </span>
+                <br />
+                <span className="text-pink">を紹介。</span>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -76,7 +84,7 @@ export default function Works() {
 
         <div className="mt-12 md:mt-16 lg:mt-64 flex justify-center reveal reveal-d2">
           <a
-            href={`https://github.com/${PROFILE.github}`}
+            href={PROFILE.github}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative px-12 py-6 md:px-40 md:py-12 bg-black text-white font-dot text-xl md:text-4xl font-black tracking-[0.4em] md:tracking-[1em] overflow-hidden shadow-[10px_10px_0px_var(--color-cyan)] md:shadow-[20px_20px_0px_var(--color-cyan)]"
