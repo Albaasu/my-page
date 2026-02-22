@@ -14,13 +14,16 @@ export interface ProjectImage {
   link?: string;
 }
 
-/* ── microCMS Blog ── */
+/* ── microCMS Blog ── 
 export interface BlogPost {
   id: string;
   title: string;
-  content: string;       // HTML (microCMS リッチエディタ)
+  content: string; // HTML (microCMS リッチエディタ)
   publishedAt: string;
   updatedAt: string;
   category?: { id: string; name: string };
   eyecatch?: { url: string; width: number; height: number };
 }
+*/
+
+export type { BlogsContent as BlogPost } from "@/types/microcms";
