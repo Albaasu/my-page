@@ -100,7 +100,7 @@ export default function BlogDetail() {
                 <div className="flex flex-wrap items-center gap-6 text-white/40 font-dot text-xs tracking-widest">
                   <span className="flex items-center gap-2">
                     <Calendar size={12} />
-                    {formatDate(post.publishedAt)}
+                    {formatDate(post.publishedAt ?? "")}
                   </span>
                   {post.updatedAt !== post.publishedAt && (
                     <span className="flex items-center gap-2">
@@ -176,7 +176,7 @@ export default function BlogDetail() {
               <article
                 className="prose-blog"
                 /* microCMS の管理者入力コンテンツのみ — XSS リスクなし */
-                dangerouslySetInnerHTML={{ __html: post.content }}
+                dangerouslySetInnerHTML={{ __html: post.content ?? "" }}
               />
 
               {/* 前後ナビ */}

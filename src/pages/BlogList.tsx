@@ -121,7 +121,7 @@ export default function BlogList() {
 
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-black/10">
                     <span className="font-dot text-xs text-black/30 tracking-widest">
-                      {formatDate(post.publishedAt)}
+                      {formatDate(post.publishedAt ?? "")}
                     </span>
                     <span className="font-dot text-xs text-black/40 group-hover:text-cyan flex items-center gap-1 transition-colors">
                       READ <ArrowRight size={12} />

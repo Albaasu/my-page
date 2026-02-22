@@ -109,10 +109,10 @@ export default function LatestPosts() {
                     {/* 日付 */}
                     <div className="shrink-0 text-right w-14">
                       <p className="font-dot text-white/20 text-[10px] tracking-widest leading-none mb-1">
-                        {formatDate(post.publishedAt).year}
+                        {formatDate(post.publishedAt ?? "").year}
                       </p>
                       <p className="font-dot text-white/50 text-sm tracking-wider">
-                        {formatDate(post.publishedAt).md}
+                        {formatDate(post.publishedAt ?? "").md}
                       </p>
                     </div>
 

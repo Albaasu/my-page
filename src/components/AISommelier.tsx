@@ -17,8 +17,8 @@ export default function AISommelier() {
       const q = keyword.toLowerCase();
       const filtered = all.filter(
         (p) =>
-          p.title.toLowerCase().includes(q) ||
-          p.category?.name.toLowerCase().includes(q)
+          p.title?.toLowerCase().includes(q) ||
+          p.category?.name?.toLowerCase().includes(q)
       );
       setResults(filtered);
     } finally {
